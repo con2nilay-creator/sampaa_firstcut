@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#2B39E6"/><text x="50" y="60" font-family="Georgia,serif" font-size="20" fill="#fff" text-anchor="middle">sampaa</text></svg></template>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;}
+  body{margin:0;}
+  a{color:var(--brand-blue,#2B39E6);text-decoration:none;}
+  a:hover{color:var(--brand-purple,#7A3FF2);}
+  ::selection{background:#DCD2FF;}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:none;}}
+  input::placeholder{color:#9A9AB0;}
+  .sx-scroll::-webkit-scrollbar{height:6px;}
+  .sx-scroll::-webkit-scrollbar-thumb{background:#D8DCF0;border-radius:99px;}
+</style>
+</helmet>
+<div style="--brand-blue:{{ brandBlue }};--brand-purple:{{ brandPurple }};font-family:Manrope,system-ui,sans-serif;color:#17131F;background:#FBFAFF;min-height:100vh;overflow-x:hidden;">
+
+  <div style="background:linear-gradient(90deg,var(--brand-blue,#2B39E6),var(--brand-purple,#7A3FF2));color:#fff;text-align:center;font-size:13px;font-weight:600;letter-spacing:.02em;padding:9px 16px;">{{ ann }}</div>
+
+  <header style="position:sticky;top:0;z-index:50;background:rgba(251,250,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid #ECECF6;">
+    <div style="max-width:1280px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;gap:24px;">
+      <div onClick="{{ goHome }}" style="cursor:pointer;font-family:'DM Serif Display',serif;font-size:30px;line-height:1;letter-spacing:-.01em;color:#17131F;">sampaa</div>
+      <nav style="display:flex;gap:22px;margin-left:8px;font-size:14.5px;font-weight:600;">
+        <span onClick="{{ navEthnic }}" style="cursor:pointer;padding:6px 0;" style-hover="color:var(--brand-purple,#7A3FF2)">Ethnic &amp; Festive</span>
+        <span onClick="{{ navGirls }}" style="cursor:pointer;padding:6px 0;" style-hover="color:var(--brand-purple,#7A3FF2)">Girls</span>
+        <span onClick="{{ navBoys }}" style="cursor:pointer;padding:6px 0;" style-hover="color:var(--brand-purple,#7A3FF2)">Boys</span>
+        <span onClick="{{ navNewborn }}" style="cursor:pointer;padding:6px 0;" style-hover="color:var(--brand-purple,#7A3FF2)">Newborn</span>
+        <span onClick="{{ navParty }}" style="cursor:pointer;padding:6px 0;" style-hover="color:var(--brand-purple,#7A3FF2)">Party</span>
+        <span onClick="{{ navSale }}" style="cursor:pointer;padding:6px 0;color:var(--brand-purple,#7A3FF2);font-weight:800;">Sale</span>
+      </nav>
+      <div style="margin-left:auto;display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #E4E4F2;border-radius:999px;padding:9px 15px;width:240px;">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#9A9AB0" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>
+        <input placeholder="Search kurtas, dresses…" style="border:none;outline:none;background:none;font-family:Manrope;font-size:13.5px;width:100%;color:#17131F;"/>
+      </div>
+      <div style="display:flex;align-items:center;gap:16px;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#17131F" stroke-width="1.7" style="cursor:pointer"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-6 8-6s8 2 8 6"/></svg>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#17131F" stroke-width="1.7" stroke-linejoin="round" style="cursor:pointer"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+        <div style="position:relative;cursor:pointer;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#17131F" stroke-width="1.7"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg>
+          <span style="position:absolute;top:-8px;right:-9px;background:var(--brand-blue,#2B39E6);color:#fff;font-size:11px;font-weight:800;min-width:18px;height:18px;border-radius:999px;display:flex;align-items:center;justify-content:center;padding:0 4px;">{{ cart }}</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= HOME ================= -->
+  <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+  <main>
+    <!-- HERO CAROUSEL -->
+    <section style="position:relative;max-width:1280px;margin:22px auto 0;padding:0 24px;">
+      <div style="position:relative;height:520px;border-radius:24px;overflow:hidden;background:#EEF0FF;">
+        <sc-for list="{{ heroR }}" as="s" hint-placeholder-count="1">
+          <div style="position:absolute;inset:0;transition:opacity .8s ease;opacity:{{ s.op }};z-index:{{ s.z }};">
+            <img src="{{ s.img }}" alt="{{ s.title }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:{{ s.focus }};"/>
+            <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(23,19,31,.72) 0%,rgba(23,19,31,.35) 45%,rgba(23,19,31,0) 75%);"></div>
+            <div style="position:absolute;left:56px;top:50%;transform:translateY(-50%);max-width:460px;color:#fff;">
+              <div style="display:inline-block;background:var(--brand-purple,#7A3FF2);font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:6px 12px;border-radius:999px;margin-bottom:18px;">{{ s.eyebrow }}</div>
+              <h1 style="font-family:'DM Serif Display',serif;font-size:52px;line-height:1.05;margin:0 0 14px;font-weight:400;">{{ s.title }}</h1>
+              <p style="font-size:17px;line-height:1.5;color:#E7E4F2;margin:0 0 26px;max-width:380px;">{{ s.sub }}</p>
+              <button onClick="{{ goList }}" style="background:#fff;color:#17131F;border:none;padding:15px 30px;border-radius:999px;font-family:Manrope;font-weight:800;font-size:15px;cursor:pointer;transition:transform .2s;" style-hover="transform:translateY(-2px)">{{ s.cta }} &rarr;</button>
+            </div>
+          </div>
+        </sc-for>
+        <button aria-label="prev" onClick="{{ prevHero }}" style="position:absolute;left:18px;top:50%;transform:translateY(-50%);z-index:20;width:44px;height:44px;border-radius:50%;border:none;background:rgba(255,255,255,.85);cursor:pointer;font-size:20px;color:#17131F;">&lsaquo;</button>
+        <button aria-label="next" onClick="{{ nextHero }}" style="position:absolute;right:18px;top:50%;transform:translateY(-50%);z-index:20;width:44px;height:44px;border-radius:50%;border:none;background:rgba(255,255,255,.85);cursor:pointer;font-size:20px;color:#17131F;">&rsaquo;</button>
+        <div style="position:absolute;bottom:20px;left:56px;z-index:20;display:flex;gap:8px;">
+          <sc-for list="{{ dots }}" as="d" hint-placeholder-count="3">
+            <button aria-label="slide" onClick="{{ d.go }}" style="{{ d.style }}"></button>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUST BAR -->
+    <section style="max-width:1280px;margin:20px auto 0;padding:0 24px;">
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;">
+        <sc-for list="{{ trust }}" as="t" hint-placeholder-count="4">
+          <div style="display:flex;align-items:center;gap:12px;background:#fff;border:1px solid #ECECF6;border-radius:14px;padding:16px 18px;">
+            <div style="width:38px;height:38px;border-radius:10px;background:#ECEEFF;display:flex;align-items:center;justify-content:center;color:var(--brand-blue,#2B39E6);flex-shrink:0;">{{ t.icon }}</div>
+            <div><div style="font-size:14px;font-weight:800;">{{ t.title }}</div><div style="font-size:12.5px;color:#7A7A90;">{{ t.sub }}</div></div>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <!-- SHOP BY CATEGORY -->
+    <section style="max-width:1280px;margin:64px auto 0;padding:0 24px;">
+      <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:26px;">
+        <div>
+          <div style="font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--brand-purple,#7A3FF2);margin-bottom:8px;">Curated for little ones</div>
+          <h2 style="font-family:'DM Serif Display',serif;font-size:38px;margin:0;font-weight:400;">Shop by Category</h2>
+        </div>
+        <span onClick="{{ goList }}" style="cursor:pointer;font-weight:700;font-size:14.5px;color:var(--brand-blue,#2B39E6);">View all &rarr;</span>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;">
+        <sc-for list="{{ categories }}" as="c" hint-placeholder-count="6">
+          <div onClick="{{ goList }}" style="position:relative;height:280px;border-radius:20px;overflow:hidden;cursor:pointer;background:#EEF0FF;">
+            <sc-if value="{{ c.img }}"><img src="{{ c.img }}" alt="{{ c.name }}" style="width:100%;height:100%;object-fit:cover;object-position:top center;transition:transform .5s;" style-hover="transform:scale(1.06)"/></sc-if>
+            <sc-if value="{{ c.ph }}"><div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:{{ c.phBg }};"><span style="font-family:'DM Serif Display',serif;font-size:44px;color:#fff;opacity:.5;">sampaa</span></div></sc-if>
+            <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(23,19,31,0) 40%,rgba(23,19,31,.72));"></div>
+            <div style="position:absolute;left:20px;bottom:18px;color:#fff;">
+              <div style="font-family:'DM Serif Display',serif;font-size:24px;">{{ c.name }}</div>
+              <div style="font-size:13px;opacity:.85;">{{ c.count }}+ styles</div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <!-- SHOP BY AGE -->
+    <section style="max-width:1280px;margin:64px auto 0;padding:0 24px;">
+      <h2 style="font-family:'DM Serif Display',serif;font-size:38px;margin:0 0 26px;font-weight:400;">Shop by Age</h2>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:18px;">
+        <sc-for list="{{ ages }}" as="a" hint-placeholder-count="4">
+          <div onClick="{{ goList }}" style="cursor:pointer;position:relative;height:160px;border-radius:18px;overflow:hidden;background:{{ a.bg }};display:flex;flex-direction:column;justify-content:center;padding:0 26px;color:#fff;transition:transform .25s;" style-hover="transform:translateY(-4px)">
+            <div style="font-family:'DM Serif Display',serif;font-size:34px;line-height:1;">{{ a.label }}</div>
+            <div style="font-size:14px;font-weight:600;opacity:.9;margin-top:6px;">{{ a.range }}</div>
+            <div style="margin-top:14px;font-size:13px;font-weight:800;letter-spacing:.02em;">Shop now &rarr;</div>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <!-- NEW ARRIVALS -->
+    <section style="max-width:1280px;margin:64px auto 0;padding:0 24px;">
+      <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:26px;">
+        <div>
+          <div style="font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--brand-blue,#2B39E6);margin-bottom:8px;">Fresh off the rack</div>
+          <h2 style="font-family:'DM Serif Display',serif;font-size:38px;margin:0;font-weight:400;">New Arrivals</h2>
+        </div>
+        <span onClick="{{ goList }}" style="cursor:pointer;font-weight:700;font-size:14.5px;color:var(--brand-blue,#2B39E6);">View all &rarr;</span>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;">
+        <sc-for list="{{ newArrivals }}" as="item" hint-placeholder-count="4">
+          <div style="position:relative;border-radius:16px;overflow:hidden;background:#fff;border:1px solid #ECECF6;cursor:pointer;transition:transform .25s,box-shadow .25s;" style-hover="transform:translateY(-5px);box-shadow:0 22px 44px -20px rgba(43,57,230,.4)" onClick="{{ item.open }}">
+            <div style="position:relative;aspect-ratio:3/4;overflow:hidden;background:#EEF0FF;">
+              <sc-if value="{{ item.img }}"><img src="{{ item.img }}" alt="{{ item.name }}" style="width:100%;height:100%;object-fit:cover;object-position:top center;"/></sc-if>
+              <sc-if value="{{ item.ph }}"><div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:{{ item.phBg }};"><span style="font-family:'DM Serif Display',serif;font-size:36px;color:#fff;opacity:.55;">sampaa</span></div></sc-if>
+              <sc-if value="{{ item.tag }}"><span style="position:absolute;top:12px;left:12px;background:var(--brand-purple,#7A3FF2);color:#fff;font-size:11px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;padding:5px 10px;border-radius:999px;">{{ item.tag }}</span></sc-if>
+              <button aria-label="wishlist" onClick="{{ item.wish }}" style="position:absolute;top:10px;right:10px;width:34px;height:34px;border:none;border-radius:50%;background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center;cursor:pointer;"><svg width="17" height="17" viewBox="0 0 24 24" fill="{{ item.heartFill }}" stroke="var(--brand-purple,#7A3FF2)" stroke-width="2"><path d="M12 21s-7-4.5-9.5-9C1 9 2.5 5.5 6 5.5c2 0 3.2 1.2 4 2.3.8-1.1 2-2.3 4-2.3 3.5 0 5 3.5 3.5 6.5C19 16.5 12 21 12 21z"/></svg></button>
+            </div>
+            <div style="padding:14px 14px 16px;">
+              <div style="font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--brand-blue,#2B39E6);font-weight:800;margin-bottom:5px;">{{ item.cat }}</div>
+              <div style="font-size:15px;font-weight:600;line-height:1.3;margin-bottom:10px;min-height:39px;">{{ item.name }}</div>
+              <div style="display:flex;align-items:center;gap:8px;">
+                <span style="font-size:16px;font-weight:800;">{{ item.priceF }}</span>
+                <span style="font-size:13px;color:#9A9AB0;text-decoration:line-through;">{{ item.mrpF }}</span>
+                <span style="font-size:12px;font-weight:800;color:#1B9E6A;">{{ item.off }}</span>
+              </div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <!-- PROMO STRIP -->
+    <section style="max-width:1280px;margin:64px auto 0;padding:0 24px;">
+      <div style="position:relative;overflow:hidden;border-radius:24px;background:linear-gradient(120deg,var(--brand-blue,#2B39E6),var(--brand-purple,#7A3FF2));color:#fff;padding:44px 52px;display:flex;align-items:center;justify-content:space-between;gap:24px;">
+        <div>
+          <div style="font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;opacity:.85;margin-bottom:10px;">First order treat</div>
+          <div style="font-family:'DM Serif Display',serif;font-size:40px;line-height:1.05;margin-bottom:8px;">Get 15% off, just for joining</div>
+          <div style="font-size:16px;opacity:.9;">Use code <b style="background:rgba(255,255,255,.2);padding:3px 10px;border-radius:8px;">SAMPAA15</b> at checkout.</div>
+        </div>
+        <button onClick="{{ goList }}" style="background:#fff;color:#17131F;border:none;padding:15px 32px;border-radius:999px;font-family:Manrope;font-weight:800;font-size:15px;cursor:pointer;white-space:nowrap;flex-shrink:0;">Start shopping &rarr;</button>
+      </div>
+    </section>
+
+    <!-- FESTIVE EDIT -->
+    <section style="max-width:1280px;margin:64px auto 0;padding:0 24px;">
+      <div style="display:grid;grid-template-columns:1.15fr .85fr;gap:0;border-radius:24px;overflow:hidden;background:#F3ECFF;min-height:440px;">
+        <div style="position:relative;">
+          <img src="{{ img.ethnic }}" alt="Festive edit" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;"/>
+        </div>
+        <div style="padding:56px 48px;display:flex;flex-direction:column;justify-content:center;">
+          <div style="font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--brand-purple,#7A3FF2);margin-bottom:12px;">The Festive Edit</div>
+          <h2 style="font-family:'DM Serif Display',serif;font-size:42px;line-height:1.05;margin:0 0 16px;font-weight:400;">Twirl-worthy ethnic wear</h2>
+          <p style="font-size:16.5px;line-height:1.6;color:#4A445A;margin:0 0 28px;">Hand-finished kurta sets, lehengas and sherwanis in rich indigos and violets — crafted in soft, skin-kind fabrics your little ones will actually want to wear.</p>
+          <div><button onClick="{{ goList }}" style="background:var(--brand-purple,#7A3FF2);color:#fff;border:none;padding:15px 30px;border-radius:999px;font-family:Manrope;font-weight:800;font-size:15px;cursor:pointer;">Explore the edit &rarr;</button></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BEST SELLERS -->
+    <section style="max-width:1280px;margin:64px auto 0;padding:0 24px;">
+      <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:26px;">
+        <div>
+          <div style="font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--brand-purple,#7A3FF2);margin-bottom:8px;">Loved by families</div>
+          <h2 style="font-family:'DM Serif Display',serif;font-size:38px;margin:0;font-weight:400;">Best Sellers</h2>
+        </div>
+        <span onClick="{{ goList }}" style="cursor:pointer;font-weight:700;font-size:14.5px;color:var(--brand-blue,#2B39E6);">View all &rarr;</span>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;">
+        <sc-for list="{{ bestSellers }}" as="item" hint-placeholder-count="4">
+          <div style="position:relative;border-radius:16px;overflow:hidden;background:#fff;border:1px solid #ECECF6;cursor:pointer;transition:transform .25s,box-shadow .25s;" style-hover="transform:translateY(-5px);box-shadow:0 22px 44px -20px rgba(122,63,242,.4)" onClick="{{ item.open }}">
+            <div style="position:relative;aspect-ratio:3/4;overflow:hidden;background:#EEF0FF;">
+              <sc-if value="{{ item.img }}"><img src="{{ item.img }}" alt="{{ item.name }}" style="width:100%;height:100%;object-fit:cover;object-position:top center;"/></sc-if>
+              <sc-if value="{{ item.ph }}"><div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:{{ item.phBg }};"><span style="font-family:'DM Serif Display',serif;font-size:36px;color:#fff;opacity:.55;">sampaa</span></div></sc-if>
+              <sc-if value="{{ item.tag }}"><span style="position:absolute;top:12px;left:12px;background:var(--brand-blue,#2B39E6);color:#fff;font-size:11px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;padding:5px 10px;border-radius:999px;">{{ item.tag }}</span></sc-if>
+              <button aria-label="wishlist" onClick="{{ item.wish }}" style="position:absolute;top:10px;right:10px;width:34px;height:34px;border:none;border-radius:50%;background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center;cursor:pointer;"><svg width="17" height="17" viewBox="0 0 24 24" fill="{{ item.heartFill }}" stroke="var(--brand-purple,#7A3FF2)" stroke-width="2"><path d="M12 21s-7-4.5-9.5-9C1 9 2.5 5.5 6 5.5c2 0 3.2 1.2 4 2.3.8-1.1 2-2.3 4-2.3 3.5 0 5 3.5 3.5 6.5C19 16.5 12 21 12 21z"/></svg></button>
+            </div>
+            <div style="padding:14px 14px 16px;">
+              <div style="font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--brand-blue,#2B39E6);font-weight:800;margin-bottom:5px;">{{ item.cat }}</div>
+              <div style="font-size:15px;font-weight:600;line-height:1.3;margin-bottom:10px;min-height:39px;">{{ item.name }}</div>
+              <div style="display:flex;align-items:center;gap:8px;">
+                <span style="font-size:16px;font-weight:800;">{{ item.priceF }}</span>
+                <span style="font-size:13px;color:#9A9AB0;text-decoration:line-through;">{{ item.mrpF }}</span>
+                <span style="font-size:12px;font-weight:800;color:#1B9E6A;">{{ item.off }}</span>
+              </div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <!-- BRAND STORY -->
+    <section style="max-width:1280px;margin:64px auto 0;padding:0 24px;">
+      <div style="display:grid;grid-template-columns:.85fr 1.15fr;gap:0;border-radius:24px;overflow:hidden;background:#17131F;color:#fff;min-height:420px;">
+        <div style="padding:56px 48px;display:flex;flex-direction:column;justify-content:center;">
+          <div style="font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#9DB2FF;margin-bottom:14px;">Our story</div>
+          <h2 style="font-family:'DM Serif Display',serif;font-size:40px;line-height:1.08;margin:0 0 18px;font-weight:400;">Clothes that keep up with childhood</h2>
+          <p style="font-size:16px;line-height:1.65;color:#C9C6D6;margin:0 0 14px;">Sampaa began with a simple wish — kidswear that feels as good as it looks. We use certified soft cottons, thoughtful cuts and playful prints so every outfit survives the mud, the mischief and the memories.</p>
+          <p style="font-size:16px;line-height:1.65;color:#C9C6D6;margin:0 0 28px;">Designed in India, made to be handed down.</p>
+          <div><button onClick="{{ goList }}" style="background:#fff;color:#17131F;border:none;padding:14px 28px;border-radius:999px;font-family:Manrope;font-weight:800;font-size:15px;cursor:pointer;">Discover Sampaa &rarr;</button></div>
+        </div>
+        <div style="position:relative;"><img src="{{ img.twogirls }}" alt="Sampaa story" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;"/></div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section style="max-width:1280px;margin:64px auto 0;padding:0 24px;">
+      <h2 style="font-family:'DM Serif Display',serif;font-size:38px;margin:0 0 26px;text-align:center;font-weight:400;">Happy parents, happier kids</h2>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
+        <sc-for list="{{ testimonials }}" as="t" hint-placeholder-count="3">
+          <div style="background:#fff;border:1px solid #ECECF6;border-radius:18px;padding:28px;">
+            <div style="color:var(--brand-purple,#7A3FF2);font-size:18px;letter-spacing:2px;margin-bottom:12px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p style="font-size:15.5px;line-height:1.6;color:#3A3548;margin:0 0 20px;">{{ t.quote }}</p>
+            <div style="display:flex;align-items:center;gap:12px;">
+              <div style="width:42px;height:42px;border-radius:50%;background:{{ t.bg }};color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px;">{{ t.initial }}</div>
+              <div><div style="font-weight:800;font-size:14.5px;">{{ t.name }}</div><div style="font-size:12.5px;color:#9A9AB0;">{{ t.role }}</div></div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <!-- INSTAGRAM -->
+    <section style="max-width:1280px;margin:64px auto 0;padding:0 24px;">
+      <div style="text-align:center;margin-bottom:26px;">
+        <div style="font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--brand-blue,#2B39E6);margin-bottom:8px;">@sampaa.kids</div>
+        <h2 style="font-family:'DM Serif Display',serif;font-size:38px;margin:0;font-weight:400;">Tag us to be featured</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:12px;">
+        <sc-for list="{{ instas }}" as="g" hint-placeholder-count="6">
+          <div style="position:relative;aspect-ratio:1/1;border-radius:14px;overflow:hidden;cursor:pointer;background:#EEF0FF;">
+            <sc-if value="{{ g.img }}"><img src="{{ g.img }}" alt="Instagram" style="width:100%;height:100%;object-fit:cover;transition:transform .4s;" style-hover="transform:scale(1.08)"/></sc-if>
+            <sc-if value="{{ g.ph }}"><div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:{{ g.phBg }};"><span style="font-family:'DM Serif Display',serif;font-size:22px;color:#fff;opacity:.55;">sampaa</span></div></sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section style="max-width:1280px;margin:64px auto 0;padding:0 24px;">
+      <div style="border-radius:24px;background:#ECEEFF;padding:52px;text-align:center;">
+        <h2 style="font-family:'DM Serif Display',serif;font-size:36px;margin:0 0 10px;font-weight:400;">Join the Sampaa family</h2>
+        <p style="font-size:16px;color:#4A445A;margin:0 0 26px;">Early access to drops, styling notes and members-only offers.</p>
+        <div style="display:flex;gap:10px;max-width:480px;margin:0 auto;">
+          <input placeholder="Your email address" style="flex:1;border:1px solid #D8DCF0;border-radius:999px;padding:15px 22px;font-family:Manrope;font-size:15px;outline:none;background:#fff;"/>
+          <button style="background:var(--brand-blue,#2B39E6);color:#fff;border:none;padding:15px 30px;border-radius:999px;font-family:Manrope;font-weight:800;font-size:15px;cursor:pointer;white-space:nowrap;">Subscribe</button>
+        </div>
+      </div>
+    </section>
+  </main>
+  </sc-if>
+
+  <!-- ================= LISTING ================= -->
+  <sc-if value="{{ isList }}" hint-placeholder-val="{{ true }}">
+  <main style="max-width:1280px;margin:0 auto;padding:26px 24px 0;">
+    <div style="font-size:13px;color:#9A9AB0;margin-bottom:14px;"><span onClick="{{ goHome }}" style="cursor:pointer;">Home</span> / <span style="color:#17131F;font-weight:700;">{{ crumb }}</span></div>
+    <div style="position:relative;border-radius:20px;overflow:hidden;background:linear-gradient(120deg,#17131F,var(--brand-blue,#2B39E6));color:#fff;padding:36px 40px;margin-bottom:26px;">
+      <h1 style="font-family:'DM Serif Display',serif;font-size:36px;margin:0 0 6px;font-weight:400;">{{ plpTitle }}</h1>
+      <p style="margin:0;font-size:15px;opacity:.9;">{{ plpCount }} styles — kurtas, sherwanis, party dresses &amp; more</p>
+    </div>
+    <div style="display:grid;grid-template-columns:250px 1fr;gap:32px;align-items:start;">
+      <aside style="position:sticky;top:88px;background:#fff;border:1px solid #ECECF6;border-radius:18px;padding:22px;">
+        <div style="font-family:'DM Serif Display',serif;font-size:20px;margin-bottom:16px;">Filters</div>
+        <sc-for list="{{ filters }}" as="f" hint-placeholder-count="3">
+          <div style="border-top:1px solid #F0F0F7;padding:16px 0;">
+            <div style="font-size:13.5px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;margin-bottom:12px;color:#3A3548;">{{ f.title }}</div>
+            <sc-for list="{{ f.opts }}" as="o" hint-placeholder-count="4">
+              <label style="display:flex;align-items:center;gap:9px;font-size:14px;color:#4A445A;margin-bottom:9px;cursor:pointer;"><span style="width:17px;height:17px;border:1.5px solid #C7C7DA;border-radius:5px;display:inline-block;"></span>{{ o }}</label>
+            </sc-for>
+          </div>
+        </sc-for>
+        <div style="border-top:1px solid #F0F0F7;padding:16px 0 0;">
+          <div style="font-size:13.5px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;margin-bottom:12px;color:#3A3548;">Colour</div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <sc-for list="{{ swatches }}" as="sw" hint-placeholder-count="4">
+              <span title="{{ sw.name }}" style="width:26px;height:26px;border-radius:50%;background:{{ sw.hex }};border:2px solid #fff;box-shadow:0 0 0 1.5px #D8DCF0;cursor:pointer;"></span>
+            </sc-for>
+          </div>
+        </div>
+      </aside>
+      <div>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;">
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <sc-for list="{{ chips }}" as="ch" hint-placeholder-count="3">
+              <span style="font-size:13px;font-weight:700;background:#ECEEFF;color:var(--brand-blue,#2B39E6);padding:7px 14px;border-radius:999px;">{{ ch }} &times;</span>
+            </sc-for>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:14px;color:#4A445A;font-weight:600;">Sort<select style="border:1px solid #D8DCF0;border-radius:10px;padding:9px 12px;font-family:Manrope;font-size:14px;font-weight:600;background:#fff;cursor:pointer;"><option>Recommended</option><option>Newest</option><option>Price: Low to High</option><option>Price: High to Low</option></select></div>
+        </div>
+        <sc-if value="{{ showGirls }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex;align-items:center;gap:14px;margin:4px 0 18px;"><div style="width:6px;height:26px;border-radius:99px;background:var(--brand-blue,#2B39E6);"></div><h2 style="font-family:'DM Serif Display',serif;font-size:26px;margin:0;font-weight:400;">Girls</h2><span style="font-size:13px;color:#9A9AB0;">Kurtas, party dresses &amp; co-ords</span></div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
+          <sc-for list="{{ girlsProducts }}" as="item" hint-placeholder-count="9">
+            <div style="position:relative;border-radius:16px;overflow:hidden;background:#fff;border:1px solid #ECECF6;cursor:pointer;transition:transform .25s,box-shadow .25s;" style-hover="transform:translateY(-5px);box-shadow:0 22px 44px -20px rgba(43,57,230,.4)" onClick="{{ item.open }}">
+              <div style="position:relative;aspect-ratio:3/4;overflow:hidden;background:#EEF0FF;">
+                <sc-if value="{{ item.img }}"><img src="{{ item.img }}" alt="{{ item.name }}" style="width:100%;height:100%;object-fit:cover;object-position:top center;"/></sc-if>
+                <sc-if value="{{ item.ph }}"><div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:{{ item.phBg }};"><span style="font-family:'DM Serif Display',serif;font-size:36px;color:#fff;opacity:.55;">sampaa</span></div></sc-if>
+                <sc-if value="{{ item.tag }}"><span style="position:absolute;top:12px;left:12px;background:var(--brand-purple,#7A3FF2);color:#fff;font-size:11px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;padding:5px 10px;border-radius:999px;">{{ item.tag }}</span></sc-if>
+                <button aria-label="wishlist" onClick="{{ item.wish }}" style="position:absolute;top:10px;right:10px;width:34px;height:34px;border:none;border-radius:50%;background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center;cursor:pointer;"><svg width="17" height="17" viewBox="0 0 24 24" fill="{{ item.heartFill }}" stroke="var(--brand-purple,#7A3FF2)" stroke-width="2"><path d="M12 21s-7-4.5-9.5-9C1 9 2.5 5.5 6 5.5c2 0 3.2 1.2 4 2.3.8-1.1 2-2.3 4-2.3 3.5 0 5 3.5 3.5 6.5C19 16.5 12 21 12 21z"/></svg></button>
+              </div>
+              <div style="padding:14px 14px 16px;">
+                <div style="font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--brand-blue,#2B39E6);font-weight:800;margin-bottom:5px;">{{ item.cat }}</div>
+                <div style="font-size:15px;font-weight:600;line-height:1.3;margin-bottom:10px;min-height:39px;">{{ item.name }}</div>
+                <div style="display:flex;align-items:center;gap:8px;">
+                  <span style="font-size:16px;font-weight:800;">{{ item.priceF }}</span>
+                  <span style="font-size:13px;color:#9A9AB0;text-decoration:line-through;">{{ item.mrpF }}</span>
+                  <span style="font-size:12px;font-weight:800;color:#1B9E6A;">{{ item.off }}</span>
+                </div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+        </sc-if>
+        <sc-if value="{{ showBoys }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex;align-items:center;gap:14px;margin:46px 0 18px;"><div style="width:6px;height:26px;border-radius:99px;background:var(--brand-purple,#7A3FF2);"></div><h2 style="font-family:'DM Serif Display',serif;font-size:26px;margin:0;font-weight:400;">Boys</h2><span style="font-size:13px;color:#9A9AB0;">Kurta sets, shirts &amp; everyday</span></div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
+          <sc-for list="{{ boysProducts }}" as="item" hint-placeholder-count="6">
+            <div style="position:relative;border-radius:16px;overflow:hidden;background:#fff;border:1px solid #ECECF6;cursor:pointer;transition:transform .25s,box-shadow .25s;" style-hover="transform:translateY(-5px);box-shadow:0 22px 44px -20px rgba(122,63,242,.4)" onClick="{{ item.open }}">
+              <div style="position:relative;aspect-ratio:3/4;overflow:hidden;background:#EEF0FF;">
+                <sc-if value="{{ item.img }}"><img src="{{ item.img }}" alt="{{ item.name }}" style="width:100%;height:100%;object-fit:cover;object-position:top center;"/></sc-if>
+                <sc-if value="{{ item.ph }}"><div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:{{ item.phBg }};"><span style="font-family:'DM Serif Display',serif;font-size:36px;color:#fff;opacity:.55;">sampaa</span></div></sc-if>
+                <sc-if value="{{ item.tag }}"><span style="position:absolute;top:12px;left:12px;background:var(--brand-purple,#7A3FF2);color:#fff;font-size:11px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;padding:5px 10px;border-radius:999px;">{{ item.tag }}</span></sc-if>
+                <button aria-label="wishlist" onClick="{{ item.wish }}" style="position:absolute;top:10px;right:10px;width:34px;height:34px;border:none;border-radius:50%;background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center;cursor:pointer;"><svg width="17" height="17" viewBox="0 0 24 24" fill="{{ item.heartFill }}" stroke="var(--brand-purple,#7A3FF2)" stroke-width="2"><path d="M12 21s-7-4.5-9.5-9C1 9 2.5 5.5 6 5.5c2 0 3.2 1.2 4 2.3.8-1.1 2-2.3 4-2.3 3.5 0 5 3.5 3.5 6.5C19 16.5 12 21 12 21z"/></svg></button>
+              </div>
+              <div style="padding:14px 14px 16px;">
+                <div style="font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--brand-blue,#2B39E6);font-weight:800;margin-bottom:5px;">{{ item.cat }}</div>
+                <div style="font-size:15px;font-weight:600;line-height:1.3;margin-bottom:10px;min-height:39px;">{{ item.name }}</div>
+                <div style="display:flex;align-items:center;gap:8px;">
+                  <span style="font-size:16px;font-weight:800;">{{ item.priceF }}</span>
+                  <span style="font-size:13px;color:#9A9AB0;text-decoration:line-through;">{{ item.mrpF }}</span>
+                  <span style="font-size:12px;font-weight:800;color:#1B9E6A;">{{ item.off }}</span>
+                </div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+        </sc-if>
+        <div style="display:flex;justify-content:center;gap:8px;margin-top:36px;">
+          <sc-for list="{{ pages }}" as="p" hint-placeholder-count="4">
+            <span style="{{ p.style }}">{{ p.n }}</span>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </main>
+  </sc-if>
+
+  <!-- ================= DETAIL ================= -->
+  <sc-if value="{{ isDetail }}" hint-placeholder-val="{{ true }}">
+  <main style="max-width:1280px;margin:0 auto;padding:26px 24px 0;">
+    <div style="font-size:13px;color:#9A9AB0;margin-bottom:20px;"><span onClick="{{ goHome }}" style="cursor:pointer;">Home</span> / <span onClick="{{ goList }}" style="cursor:pointer;">Girls</span> / <span style="color:#17131F;font-weight:700;">{{ product.name }}</span></div>
+    <div style="display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:start;">
+      <div style="display:grid;grid-template-columns:76px 1fr;gap:14px;position:sticky;top:88px;">
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <sc-for list="{{ galleryThumbs }}" as="t" hint-placeholder-count="4">
+            <div onClick="{{ t.sel }}" style="{{ t.style }}">
+              <sc-if value="{{ t.img }}"><img src="{{ t.img }}" alt="view" style="width:100%;height:100%;object-fit:cover;object-position:top center;"/></sc-if>
+              <sc-if value="{{ t.ph }}"><div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:{{ t.phBg }};"><span style="font-family:'DM Serif Display',serif;font-size:14px;color:#fff;opacity:.6;">s</span></div></sc-if>
+            </div>
+          </sc-for>
+        </div>
+        <div style="position:relative;aspect-ratio:3/4;border-radius:20px;overflow:hidden;background:#EEF0FF;">
+          <sc-if value="{{ mainImg }}"><img src="{{ mainImg }}" alt="{{ product.name }}" style="width:100%;height:100%;object-fit:cover;object-position:top center;"/></sc-if>
+          <sc-if value="{{ mainPh }}"><div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:{{ mainPhBg }};"><span style="font-family:'DM Serif Display',serif;font-size:56px;color:#fff;opacity:.5;">sampaa</span></div></sc-if>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--brand-purple,#7A3FF2);margin-bottom:8px;">{{ product.cat }}</div>
+        <h1 style="font-family:'DM Serif Display',serif;font-size:34px;line-height:1.15;margin:0 0 12px;font-weight:400;">{{ product.name }}</h1>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:18px;">
+          <span style="color:var(--brand-purple,#7A3FF2);letter-spacing:2px;">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span style="font-size:13.5px;color:#7A7A90;">4.8 · 126 reviews</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:24px;">
+          <span style="font-size:28px;font-weight:800;">{{ product.priceF }}</span>
+          <span style="font-size:17px;color:#9A9AB0;text-decoration:line-through;">{{ product.mrpF }}</span>
+          <span style="font-size:14px;font-weight:800;color:#1B9E6A;">{{ product.off }}</span>
+        </div>
+        <div style="margin-bottom:22px;">
+          <div style="display:flex;justify-content:space-between;font-size:13.5px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;margin-bottom:12px;color:#3A3548;">Colour<span style="color:#7A7A90;font-weight:600;text-transform:none;letter-spacing:0;">{{ colorName }}</span></div>
+          <div style="display:flex;gap:12px;">
+            <sc-for list="{{ colorsR }}" as="c" hint-placeholder-count="4">
+              <span onClick="{{ c.sel }}" title="{{ c.name }}" style="{{ c.style }}"><span style="width:24px;height:24px;border-radius:50%;background:{{ c.hex }};display:block;"></span></span>
+            </sc-for>
+          </div>
+        </div>
+        <div style="margin-bottom:26px;">
+          <div style="display:flex;justify-content:space-between;font-size:13.5px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;margin-bottom:12px;color:#3A3548;">Size<span style="color:var(--brand-blue,#2B39E6);font-weight:700;text-transform:none;letter-spacing:0;cursor:pointer;">Size guide</span></div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <sc-for list="{{ sizesR }}" as="s" hint-placeholder-count="6">
+              <span onClick="{{ s.sel }}" style="{{ s.style }}">{{ s.label }}</span>
+            </sc-for>
+          </div>
+        </div>
+        <div style="display:flex;gap:12px;margin-bottom:20px;">
+          <button onClick="{{ addToBag }}" style="flex:1;background:var(--brand-blue,#2B39E6);color:#fff;border:none;padding:17px;border-radius:999px;font-family:Manrope;font-weight:800;font-size:16px;cursor:pointer;transition:transform .2s;" style-hover="transform:translateY(-2px)">Add to Bag</button>
+          <button onClick="{{ wishProduct }}" style="width:56px;border:1.5px solid #D8DCF0;border-radius:999px;background:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="{{ productHeart }}" stroke="var(--brand-purple,#7A3FF2)" stroke-width="2"><path d="M12 21s-7-4.5-9.5-9C1 9 2.5 5.5 6 5.5c2 0 3.2 1.2 4 2.3.8-1.1 2-2.3 4-2.3 3.5 0 5 3.5 3.5 6.5C19 16.5 12 21 12 21z"/></svg></button>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;background:#ECEEFF;border-radius:12px;padding:14px 18px;margin-bottom:26px;font-size:14px;color:#3A3548;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--brand-blue,#2B39E6)" stroke-width="1.8"><rect x="1" y="6" width="15" height="11" rx="1.5"/><path d="M16 9h4l3 3v5h-7z"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg>
+          Free delivery by <b style="margin:0 3px;">Fri, 8 Aug</b> · Free 15-day returns
+        </div>
+        <sc-for list="{{ accordions }}" as="ac" hint-placeholder-count="3">
+          <div style="border-top:1px solid #ECECF6;padding:16px 0;">
+            <div style="font-weight:800;font-size:15px;margin-bottom:8px;">{{ ac.title }}</div>
+            <div style="font-size:14.5px;line-height:1.6;color:#4A445A;">{{ ac.body }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+
+    <section style="margin:64px 0 0;">
+      <h2 style="font-family:'DM Serif Display',serif;font-size:32px;margin:0 0 24px;font-weight:400;">You may also like</h2>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;">
+        <sc-for list="{{ related }}" as="item" hint-placeholder-count="4">
+          <div style="position:relative;border-radius:16px;overflow:hidden;background:#fff;border:1px solid #ECECF6;cursor:pointer;transition:transform .25s,box-shadow .25s;" style-hover="transform:translateY(-5px);box-shadow:0 22px 44px -20px rgba(43,57,230,.4)" onClick="{{ item.open }}">
+            <div style="position:relative;aspect-ratio:3/4;overflow:hidden;background:#EEF0FF;">
+              <sc-if value="{{ item.img }}"><img src="{{ item.img }}" alt="{{ item.name }}" style="width:100%;height:100%;object-fit:cover;object-position:top center;"/></sc-if>
+              <sc-if value="{{ item.ph }}"><div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:{{ item.phBg }};"><span style="font-family:'DM Serif Display',serif;font-size:36px;color:#fff;opacity:.55;">sampaa</span></div></sc-if>
+            </div>
+            <div style="padding:14px 14px 16px;">
+              <div style="font-size:15px;font-weight:600;line-height:1.3;margin-bottom:8px;min-height:39px;">{{ item.name }}</div>
+              <div style="display:flex;align-items:center;gap:8px;"><span style="font-size:16px;font-weight:800;">{{ item.priceF }}</span><span style="font-size:13px;color:#9A9AB0;text-decoration:line-through;">{{ item.mrpF }}</span></div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+  </main>
+  </sc-if>
+
+  <!-- ================= FOOTER ================= -->
+  <footer style="margin-top:72px;background:#17131F;color:#C9C6D6;">
+    <div style="max-width:1280px;margin:0 auto;padding:52px 24px 28px;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px;">
+      <div>
+        <div style="font-family:'DM Serif Display',serif;font-size:28px;color:#fff;margin-bottom:12px;">sampaa<span style="color:var(--brand-purple,#7A3FF2);">.</span></div>
+        <p style="font-size:14px;line-height:1.6;max-width:260px;margin:0 0 16px;">Thoughtfully made kidswear — designed in India, built for play, made to be handed down.</p>
+        <div style="display:flex;gap:10px;">
+          <span style="width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;cursor:pointer;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="#fff"/></svg></span>
+          <span style="width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;cursor:pointer;"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M13 22v-8h3l1-4h-4V8c0-1 .3-1.7 1.8-1.7H17V2.8C16.6 2.7 15.5 2.6 14.3 2.6c-2.6 0-4.3 1.6-4.3 4.5V10H7v4h3v8z"/></svg></span>
+        </div>
+      </div>
+      <div>
+        <div style="font-weight:800;color:#fff;font-size:14px;margin-bottom:14px;">Shop</div>
+        <div style="display:flex;flex-direction:column;gap:10px;font-size:14px;"><span style="cursor:pointer;">Girls</span><span style="cursor:pointer;">Boys</span><span style="cursor:pointer;">Newborn</span><span style="cursor:pointer;">Ethnic &amp; Festive</span><span style="cursor:pointer;">Sale</span></div>
+      </div>
+      <div>
+        <div style="font-weight:800;color:#fff;font-size:14px;margin-bottom:14px;">Help</div>
+        <div style="display:flex;flex-direction:column;gap:10px;font-size:14px;"><span style="cursor:pointer;">Track order</span><span style="cursor:pointer;">Shipping</span><span style="cursor:pointer;">Returns &amp; exchange</span><span style="cursor:pointer;">Size guide</span><span style="cursor:pointer;">Contact us</span></div>
+      </div>
+      <div>
+        <div style="font-weight:800;color:#fff;font-size:14px;margin-bottom:14px;">Company</div>
+        <div style="display:flex;flex-direction:column;gap:10px;font-size:14px;"><span style="cursor:pointer;">Our story</span><span style="cursor:pointer;">Sustainability</span><span style="cursor:pointer;">Careers</span><span style="cursor:pointer;">Stores</span></div>
+      </div>
+    </div>
+    <div style="border-top:1px solid rgba(255,255,255,.1);"><div style="max-width:1280px;margin:0 auto;padding:18px 24px;display:flex;justify-content:space-between;font-size:12.5px;color:#8B8799;"><span>© 2026 Sampaa. All rights reserved.</span><span>Privacy · Terms</span></div></div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:900},&quot;brandBlue&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#2B39E6&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#2B39E6&quot;,&quot;#3541D6&quot;,&quot;#1E2699&quot;],&quot;section&quot;:&quot;Brand&quot;},&quot;brandPurple&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#7A3FF2&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#7A3FF2&quot;,&quot;#8B4DF5&quot;,&quot;#6D28D9&quot;],&quot;section&quot;:&quot;Brand&quot;},&quot;heroAutoplay&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Behaviour&quot;}}">
+class Component extends DCLogic {
+  state = { page:'home', hero:0, cart:0, wish:{}, size:'4-5Y', color:0, thumb:0, ann:0, product:null, cat:'Ethnic & Festive' };
+
+  img = {
+    boy:'uploads/ai-kids-fashion-photography-1.png',
+    ethnic:'uploads/kids.png',
+    pink:'uploads/cute-kids-summer-fashion-sunglasses-summer-dress-sandals_976047-2093.avif',
+    navyfloral:'uploads/children-fashion-young-models-kids-posing_86390-339.avif',
+    formal:'uploads/9e0b83a99a7b567d0aa2488b32019651.jpg',
+    hat:'uploads/full-length-portrait-cute-little-girl-hat_171337-13768.avif',
+    twogirls:'uploads/fashion-model-kids_115919-23081.avif',
+    purpleyellow:'uploads/fashion-boy-girl-stylish-clothes-colored-wall-background-autumn-bright-clothes-children-child-posing-colored-purple-pink-background-russia-sverdlovsk-6-april-2019_86390-5983.avif',
+    yellow:'uploads/fashion-model-kids-free-photo%20(2).jpg',
+  };
+
+  PH = ['linear-gradient(135deg,#E7EAFF,#C7D1FF)','linear-gradient(135deg,#F0E7FF,#D8C4FF)','linear-gradient(135deg,#E4E8FF,#E7D9FF)','linear-gradient(135deg,#DDE3FF,#C3B2FF)','linear-gradient(135deg,#EEE7FF,#CBB9FF)'];
+
+  heroSlides = [
+    { img:this.img.formal, focus:'50% 22%', eyebrow:'Festive & Formal', title:'Dressed for the big day', sub:'Handcrafted ethnic & occasion wear, made to twirl in.', cta:'Shop Festive' },
+    { img:this.img.navyfloral, focus:'50% 18%', eyebrow:'New Season', title:'Prints that love to play', sub:'Breezy party dresses in rich indigo & violet.', cta:'Shop New In' },
+    { img:this.img.purpleyellow, focus:'50% 22%', eyebrow:'Everyday Easy', title:'Comfy, colourful, kid-approved', sub:'Mix-and-match staples for school and play.', cta:'Shop Everyday' },
+  ];
+
+  anns = ['Extra 15% off your first order — code SAMPAA15','Free shipping on all orders above ₹1499','Easy 15-day returns, always'];
+
+  trust = [
+    { title:'Free shipping', sub:'On orders ₹1499+', icon:this.svg('<path d="M1 6h13v9H1z"/><path d="M14 9h4l3 3v3h-7z"/><circle cx="5.5" cy="17" r="1.8"/><circle cx="17.5" cy="17" r="1.8"/>') },
+    { title:'Easy returns', sub:'15-day, no fuss', icon:this.svg('<path d="M3 11a8 8 0 0 1 14-5"/><path d="M17 3v3h-3"/><path d="M21 13a8 8 0 0 1-14 5"/><path d="M7 21v-3h3"/>') },
+    { title:'Skin-kind fabric', sub:'Certified soft cotton', icon:this.svg('<path d="M12 21s-7-4.5-9.5-9C1 9 2.5 5.5 6 5.5c2 0 3.2 1.2 4 2.3.8-1.1 2-2.3 4-2.3 3.5 0 5 3.5 3.5 6.5C19 16.5 12 21 12 21z"/>') },
+    { title:'COD available', sub:'Pay at your door', icon:this.svg('<rect x="2" y="5" width="20" height="14" rx="2"/><circle cx="12" cy="12" r="3"/>') },
+  ];
+
+  categories = [
+    { name:'Ethnic & Festive', count:48, img:this.img.ethnic },
+    { name:'Girls', count:126, img:this.img.pink },
+    { name:'Boys', count:98, img:this.img.boy },
+    { name:'Party & Occasion', count:64, img:this.img.navyfloral },
+    { name:'Newborn 0-2Y', count:52, ph:true, phBg:this.PH[3] },
+    { name:'Everyday Casual', count:140, img:this.img.yellow },
+  ];
+
+  ages = [
+    { label:'0-2Y', range:'Newborn & baby', bg:'linear-gradient(135deg,#2B39E6,#5561F0)' },
+    { label:'2-4Y', range:'Toddler', bg:'linear-gradient(135deg,#7A3FF2,#9B6BF5)' },
+    { label:'4-8Y', range:'Little kids', bg:'linear-gradient(135deg,#17131F,#3A3560)' },
+    { label:'8-14Y', range:'Tweens', bg:'linear-gradient(135deg,#3541D6,#7A3FF2)' },
+  ];
+
+  newArrivals = [
+    { id:'n1', cat:'Party Dress', name:'Mira Navy Floral Party Dress', price:1899, mrp:2499, img:this.img.navyfloral, tag:'New' },
+    { id:'n2', cat:'Boys Overshirt', name:'Ivory Utility Cotton Overshirt', price:1499, mrp:1999, img:this.img.boy, tag:'New' },
+    { id:'n3', cat:'Girls Co-ord', name:'Blush Ruffle Shirt & Skirt Set', price:1699, mrp:2199, img:this.img.pink },
+    { id:'n4', cat:'Everyday', name:'Sunbeam Everyday Tee & Pant', price:1299, mrp:1699, img:this.img.yellow },
+  ];
+
+  bestSellers = [
+    { id:'b1', cat:'Formal Set', name:'Indigo Formal Blazer & Dress Set', price:2499, mrp:3199, img:this.img.formal, tag:'Bestseller' },
+    { id:'b2', cat:'Girls Denim', name:'Zoya Denim & Stripes Combo', price:1599, mrp:1999, img:this.img.twogirls },
+    { id:'b3', cat:'Summer', name:'Daisy Pink Sundress & Hat', price:1399, mrp:1799, img:this.img.hat, tag:'Bestseller' },
+    { id:'b4', cat:'Ethnic', name:'Utsav Kurta Set — Mint', price:1799, mrp:2299, ph:true, phBg:this.PH[0] },
+  ];
+
+  testimonials = [
+    { quote:'The fabric is genuinely soft and the fit is perfect. My daughter refuses to take off her Sampaa kurta!', name:'Ananya R.', role:'Mom of 2', initial:'A', bg:'#2B39E6' },
+    { quote:'Beautiful festive collection and delivery was quick. The stitching quality is far better than I expected.', name:'Kabir M.', role:'Dad of 1', initial:'K', bg:'#7A3FF2' },
+    { quote:'Finally kidswear that survives the washing machine and still looks new. Ordering again for Diwali.', name:'Priya S.', role:'Mom of 3', initial:'P', bg:'#17131F' },
+  ];
+
+  instas = [
+    { img:this.img.pink }, { img:this.img.formal }, { img:this.img.hat },
+    { img:this.img.purpleyellow }, { img:this.img.navyfloral }, { ph:true, phBg:this.PH[2] },
+  ];
+
+  filters = [
+    { title:'Category', opts:['Kurta Sets','Lehengas','Party Dresses','Sherwanis','Co-ords'] },
+    { title:'Age', opts:['0-2Y','2-4Y','4-8Y','8-14Y'] },
+    { title:'Price', opts:['Under ₹999','₹1000-₹1999','₹2000-₹2999','₹3000+'] },
+  ];
+  swatches = [{name:'Indigo',hex:'#2B39E6'},{name:'Violet',hex:'#7A3FF2'},{name:'Midnight',hex:'#17131F'},{name:'Sky',hex:'#9DB2FF'},{name:'Blush',hex:'#E9C6D6'}];
+  chips = ['Ethnic & Festive','4-8Y'];
+
+  plpProducts = [
+    { id:'p1', cat:'Party Dress', name:'Mira Navy Floral Party Dress', price:1899, mrp:2499, img:this.img.navyfloral, tag:'New' },
+    { id:'p2', cat:'Ethnic', name:'Utsav Mint Kurta & Salwar Set', price:1799, mrp:2299, img:this.img.ethnic, tag:'Festive' },
+    { id:'p3', cat:'Summer', name:'Daisy Pink Sundress & Hat', price:1399, mrp:1799, img:this.img.pink },
+    { id:'p4', cat:'Girls Co-ord', name:'Sky Blue Twirl Dress', price:1699, mrp:2099, img:this.img.twogirls },
+    { id:'p5', cat:'Ethnic', name:'Rang Anarkali Set — Violet', price:2299, mrp:2899, ph:true, phBg:this.PH[1], tag:'Festive' },
+    { id:'p6', cat:'Party Dress', name:'Starlet Sequin Frock', price:2099, mrp:2699, ph:true, phBg:this.PH[4] },
+    { id:'p7', cat:'Lehenga', name:'Noor Mirror-work Lehenga', price:2999, mrp:3799, ph:true, phBg:this.PH[3] },
+    { id:'p8', cat:'Girls Kurti', name:'Meher Straight Kurti — Indigo', price:1299, mrp:1699, ph:true, phBg:this.PH[0] },
+    { id:'p9', cat:'Co-ord', name:'Bloom Print Top & Sharara', price:1899, mrp:2399, ph:true, phBg:this.PH[2] },
+    { id:'p10', cat:'Party Dress', name:'Velvet Bow Occasion Dress', price:2199, mrp:2799, ph:true, phBg:this.PH[1] },
+    { id:'p11', cat:'Ethnic', name:'Reet Cotton Kurta Set', price:1499, mrp:1899, ph:true, phBg:this.PH[4] },
+    { id:'p12', cat:'Lehenga', name:'Saanjh Silk Lehenga — Wine', price:3299, mrp:4199, ph:true, phBg:this.PH[3] },
+  ];
+
+  boysProducts = [
+    { id:'bp1', cat:'Formal Set', name:'Indigo Formal Blazer & Trouser', price:2499, mrp:3199, img:this.img.formal, tag:'New' },
+    { id:'bp2', cat:'Boys Overshirt', name:'Ivory Utility Cotton Overshirt', price:1499, mrp:1999, img:this.img.boy },
+    { id:'bp3', cat:'Ethnic', name:'Vihaan Kurta & Pyjama — Blue', price:1799, mrp:2299, ph:true, phBg:this.PH[0], tag:'Festive' },
+    { id:'bp4', cat:'Everyday', name:'Play Cotton Tee & Jogger', price:1199, mrp:1599, ph:true, phBg:this.PH[3] },
+    { id:'bp5', cat:'Sherwani', name:'Raja Festive Sherwani Set', price:2999, mrp:3799, ph:true, phBg:this.PH[1] },
+    { id:'bp6', cat:'Boys Shirt', name:'Checked Casual Shirt — Violet', price:1099, mrp:1499, ph:true, phBg:this.PH[2] },
+  ];
+
+  related = [
+    { id:'r1', cat:'Ethnic', name:'Utsav Mint Kurta & Salwar Set', price:1799, mrp:2299, img:this.img.ethnic },
+    { id:'r2', cat:'Summer', name:'Daisy Pink Sundress & Hat', price:1399, mrp:1799, img:this.img.hat },
+    { id:'r3', cat:'Ethnic', name:'Rang Anarkali Set — Violet', price:2299, mrp:2899, ph:true, phBg:this.PH[1] },
+    { id:'r4', cat:'Lehenga', name:'Noor Mirror-work Lehenga', price:2999, mrp:3799, ph:true, phBg:this.PH[3] },
+  ];
+
+  sizes = ['0-3M','3-6M','1-2Y','2-3Y','4-5Y','6-7Y','8-9Y'];
+  colors = [{name:'Indigo',hex:'#2B39E6'},{name:'Violet',hex:'#7A3FF2'},{name:'Midnight',hex:'#17131F'},{name:'Sky',hex:'#9DB2FF'}];
+
+  svg(inner){ return React.createElement('svg',{width:20,height:20,viewBox:'0 0 24 24',fill:'none',stroke:'currentColor',strokeWidth:1.7},React.createElement('g',{dangerouslySetInnerHTML:{__html:inner}})); }
+
+  componentDidMount(){
+    if(this.props.heroAutoplay !== false){
+      this._h = setInterval(()=>this.setState(s=>({hero:(s.hero+1)%this.heroSlides.length})), 5000);
+    }
+    this._a = setInterval(()=>this.setState(s=>({ann:(s.ann+1)%this.anns.length})), 3800);
+  }
+  componentWillUnmount(){ clearInterval(this._h); clearInterval(this._a); }
+
+  go(page){ if(typeof window!=='undefined') window.scrollTo({top:0}); this.setState({page}); }
+  goCat(cat){ if(typeof window!=='undefined') window.scrollTo({top:0}); this.setState({page:'list', cat}); }
+  toggleWish(id){ this.setState(s=>({wish:{...s.wish,[id]:!s.wish[id]}})); }
+  fmt(n){ return '₹'+Number(n).toLocaleString('en-IN'); }
+  off(p,m){ return Math.round((m-p)/m*100)+'% OFF'; }
+
+  deco(list){
+    return list.map(p=>({
+      ...p,
+      priceF:this.fmt(p.price), mrpF:this.fmt(p.mrp), off:this.off(p.price,p.mrp),
+      heartFill: this.state.wish[p.id] ? 'var(--brand-purple,#7A3FF2)' : 'none',
+      wish:(e)=>{ if(e&&e.stopPropagation)e.stopPropagation(); this.toggleWish(p.id); },
+      open:()=>{ this.setState({product:p, thumb:0}); this.go('detail'); },
+    }));
+  }
+
+  renderVals(){
+    const st=this.state;
+    const heroR=this.heroSlides.map((s,i)=>({...s, op:i===st.hero?1:0, z:i===st.hero?2:1}));
+    const dots=this.heroSlides.map((s,i)=>({
+      go:()=>this.setState({hero:i}),
+      style:`width:${i===st.hero?'30px':'9px'};height:9px;border-radius:99px;border:none;cursor:pointer;background:${i===st.hero?'#fff':'rgba(255,255,255,.5)'};transition:width .3s;`
+    }));
+
+    const product = st.product || this.plpProducts[0];
+    const galleryImgs = product.img
+      ? [{img:product.img},{ph:true,phBg:this.PH[1]},{ph:true,phBg:this.PH[3]},{ph:true,phBg:this.PH[0]}]
+      : [{ph:true,phBg:product.phBg||this.PH[0]},{ph:true,phBg:this.PH[1]},{ph:true,phBg:this.PH[3]},{ph:true,phBg:this.PH[2]}];
+    const galleryThumbs = galleryImgs.map((g,i)=>({
+      ...g,
+      sel:()=>this.setState({thumb:i}),
+      style:`aspect-ratio:3/4;border-radius:12px;overflow:hidden;cursor:pointer;background:#EEF0FF;border:2px solid ${i===st.thumb?'var(--brand-blue,#2B39E6)':'transparent'};`
+    }));
+    const main = galleryImgs[st.thumb] || galleryImgs[0];
+
+    const sizesR=this.sizes.map(s=>({
+      label:s, sel:()=>this.setState({size:s}),
+      style:`padding:11px 16px;border-radius:11px;font-weight:700;font-size:14px;cursor:pointer;border:1.5px solid ${s===st.size?'var(--brand-blue,#2B39E6)':'#D8DCF0'};background:${s===st.size?'var(--brand-blue,#2B39E6)':'#fff'};color:${s===st.size?'#fff':'#17131F'};`
+    }));
+    const colorsR=this.colors.map((c,i)=>({
+      ...c, sel:()=>this.setState({color:i}),
+      style:`padding:3px;border-radius:50%;cursor:pointer;display:inline-flex;border:2px solid ${i===st.color?'var(--brand-blue,#2B39E6)':'transparent'};`
+    }));
+
+    const pages=[{n:'1'},{n:'2'},{n:'3'},{n:'›'}].map((p,i)=>({
+      n:p.n,
+      style:`min-width:40px;height:40px;display:inline-flex;align-items:center;justify-content:center;border-radius:11px;font-weight:700;font-size:14px;cursor:pointer;background:${i===0?'var(--brand-blue,#2B39E6)':'#fff'};color:${i===0?'#fff':'#17131F'};border:1px solid ${i===0?'transparent':'#E4E4F2'};`
+    }));
+
+    const accordions=[
+      { title:'Product details', body:'A festive-ready silhouette in breathable cotton-blend with a soft inner lining. Concealed back zip, easy-wear fit and a twirl-friendly gathered skirt. Prewashed for lasting colour.' },
+      { title:'Fabric & care', body:'60% cotton, 40% viscose. Gentle machine wash cold, do not bleach, warm iron on reverse. Colours stay rich wash after wash.' },
+      { title:'Delivery & returns', body:'Free delivery on orders above ₹1499, typically in 3-5 days. Enjoy free 15-day returns and easy size exchanges.' },
+    ];
+
+    return {
+      brandBlue:this.props.brandBlue ?? '#2B39E6',
+      brandPurple:this.props.brandPurple ?? '#7A3FF2',
+      img:this.img,
+      isHome:st.page==='home', isList:st.page==='list', isDetail:st.page==='detail',
+      goHome:()=>this.go('home'), goList:()=>this.go('list'),
+      navEthnic:()=>this.goCat('Ethnic & Festive'), navGirls:()=>this.goCat('Girls'), navBoys:()=>this.goCat('Boys'),
+      navNewborn:()=>this.goCat('Newborn'), navParty:()=>this.goCat('Party & Occasion'), navSale:()=>this.goCat('Sale'),
+      plpTitle:st.cat==='Girls'?'Girls':st.cat==='Boys'?'Boys':st.cat==='Newborn'?'Newborn 0-2Y':st.cat==='Party & Occasion'?'Party & Occasion':st.cat==='Sale'?'Sale — up to 50% off':'Ethnic & Festive — Girls & Boys',
+      showGirls:st.cat!=='Boys', showBoys:st.cat!=='Girls', crumb:st.cat,
+      ann:this.anns[st.ann], cart:st.cart,
+      heroR, dots, nextHero:()=>this.setState(s=>({hero:(s.hero+1)%this.heroSlides.length})), prevHero:()=>this.setState(s=>({hero:(s.hero-1+this.heroSlides.length)%this.heroSlides.length})),
+      trust:this.trust, categories:this.categories, ages:this.ages, testimonials:this.testimonials, instas:this.instas,
+      newArrivals:this.deco(this.newArrivals), bestSellers:this.deco(this.bestSellers),
+      filters:this.filters, swatches:this.swatches, chips:this.chips,
+      girlsProducts:this.deco(this.plpProducts), boysProducts:this.deco(this.boysProducts),
+      plpCount:this.plpProducts.length + this.boysProducts.length, pages,
+      related:this.deco(this.related),
+      product:{...product, priceF:this.fmt(product.price), mrpF:this.fmt(product.mrp), off:this.off(product.price,product.mrp)},
+      galleryThumbs, mainImg:main.img, mainPh:main.ph, mainPhBg:main.phBg,
+      sizesR, colorsR, colorName:this.colors[st.color].name,
+      addToBag:()=>this.setState(s=>({cart:s.cart+1})),
+      wishProduct:()=>this.toggleWish(product.id), productHeart:st.wish[product.id]?'var(--brand-purple,#7A3FF2)':'none',
+      accordions,
+    };
+  }
+}
+</script>
+</body>
+</html>
