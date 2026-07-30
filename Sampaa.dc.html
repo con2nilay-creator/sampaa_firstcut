@@ -43,6 +43,7 @@
     .g-foot{grid-template-columns:repeat(2,1fr)!important;}
     .sx-hero{height:440px!important;}
     .sx-hero-txt{left:22px!important;right:22px!important;max-width:none!important;}
+    .sx-arrow{display:none!important;}
     .sx-promo{flex-direction:column!important;align-items:flex-start!important;}
     .sx-head{gap:12px!important;padding-left:16px!important;padding-right:16px!important;}
     .sx-nav{order:3;width:100%;flex-wrap:nowrap!important;overflow-x:auto;gap:18px!important;padding-bottom:2px;margin-left:0!important;}
@@ -91,7 +92,7 @@
           <div style="position:absolute;inset:0;transition:opacity .8s ease;opacity:{{ s.op }};z-index:{{ s.z }};">
             <img src="{{ s.img }}" alt="{{ s.title }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:{{ s.focus }};"/>
             <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(23,19,31,.72) 0%,rgba(23,19,31,.35) 45%,rgba(23,19,31,0) 75%);"></div>
-            <div class="sx-hero-txt" style="position:absolute;left:56px;top:50%;transform:translateY(-50%);max-width:460px;color:#fff;">
+            <div class="sx-hero-txt" style="position:absolute;left:80px;top:50%;transform:translateY(-50%);max-width:440px;color:#fff;z-index:15;">
               <div style="display:inline-block;background:var(--brand-purple,#7A3FF2);font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:6px 12px;border-radius:999px;margin-bottom:18px;">{{ s.eyebrow }}</div>
               <h1 style="font-family:'DM Serif Display',serif;font-size:52px;line-height:1.05;margin:0 0 14px;font-weight:400;">{{ s.title }}</h1>
               <p style="font-size:17px;line-height:1.5;color:#E7E4F2;margin:0 0 26px;max-width:380px;">{{ s.sub }}</p>
@@ -99,8 +100,8 @@
             </div>
           </div>
         </sc-for>
-        <button aria-label="prev" onClick="{{ prevHero }}" style="position:absolute;left:18px;top:50%;transform:translateY(-50%);z-index:20;width:44px;height:44px;border-radius:50%;border:none;background:rgba(255,255,255,.85);cursor:pointer;font-size:20px;color:#17131F;">&lsaquo;</button>
-        <button aria-label="next" onClick="{{ nextHero }}" style="position:absolute;right:18px;top:50%;transform:translateY(-50%);z-index:20;width:44px;height:44px;border-radius:50%;border:none;background:rgba(255,255,255,.85);cursor:pointer;font-size:20px;color:#17131F;">&rsaquo;</button>
+        <button aria-label="prev" onClick="{{ prevHero }}" class="sx-arrow" style="position:absolute;left:18px;top:50%;transform:translateY(-50%);z-index:20;width:44px;height:44px;border-radius:50%;border:none;background:rgba(255,255,255,.85);cursor:pointer;font-size:20px;color:#17131F;">&lsaquo;</button>
+        <button aria-label="next" onClick="{{ nextHero }}" class="sx-arrow" style="position:absolute;right:18px;top:50%;transform:translateY(-50%);z-index:20;width:44px;height:44px;border-radius:50%;border:none;background:rgba(255,255,255,.85);cursor:pointer;font-size:20px;color:#17131F;">&rsaquo;</button>
         <div style="position:absolute;bottom:20px;left:56px;z-index:20;display:flex;gap:8px;">
           <sc-for list="{{ dots }}" as="d" hint-placeholder-count="3">
             <button aria-label="slide" onClick="{{ d.go }}" style="{{ d.style }}"></button>
@@ -537,9 +538,9 @@ class Component extends DCLogic {
   PH = ['linear-gradient(135deg,#E7EAFF,#C7D1FF)','linear-gradient(135deg,#F0E7FF,#D8C4FF)','linear-gradient(135deg,#E4E8FF,#E7D9FF)','linear-gradient(135deg,#DDE3FF,#C3B2FF)','linear-gradient(135deg,#EEE7FF,#CBB9FF)'];
 
   heroSlides = [
-    { img:this.img.formal, focus:'50% 22%', eyebrow:'Festive & Formal', title:'Dressed for the big day', sub:'Handcrafted ethnic & occasion wear, made to twirl in.', cta:'Shop Festive' },
+    { img:this.img.formal, focus:'50% 6%', eyebrow:'Festive & Formal', title:'Dressed for the big day', sub:'Handcrafted ethnic & occasion wear, made to twirl in.', cta:'Shop Festive' },
     { img:this.img.navyfloral, focus:'50% 18%', eyebrow:'New Season', title:'Prints that love to play', sub:'Breezy party dresses in rich indigo & violet.', cta:'Shop New In' },
-    { img:this.img.purpleyellow, focus:'50% 22%', eyebrow:'Everyday Easy', title:'Comfy, colourful, kid-approved', sub:'Mix-and-match staples for school and play.', cta:'Shop Everyday' },
+    { img:this.img.purpleyellow, focus:'50% 8%', eyebrow:'Everyday Easy', title:'Comfy, colourful, kid-approved', sub:'Mix-and-match staples for school and play.', cta:'Shop Everyday' },
   ];
 
   anns = ['Extra 15% off your first order — code SAMPAA15','Free shipping on all orders above ₹1499','Easy 15-day returns, always'];
