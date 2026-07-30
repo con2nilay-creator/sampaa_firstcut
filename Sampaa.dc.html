@@ -22,6 +22,33 @@
   input::placeholder{color:#9A9AB0;}
   .sx-scroll::-webkit-scrollbar{height:6px;}
   .sx-scroll::-webkit-scrollbar-thumb{background:#D8DCF0;border-radius:99px;}
+
+  @media(max-width:1024px){
+    .g-prod{grid-template-columns:repeat(3,1fr)!important;}
+    .g-3col{grid-template-columns:repeat(2,1fr)!important;}
+    .g-cat{grid-template-columns:repeat(2,1fr)!important;}
+    .g-4{grid-template-columns:repeat(2,1fr)!important;}
+    .g-trust{grid-template-columns:repeat(2,1fr)!important;}
+    .g-insta{grid-template-columns:repeat(4,1fr)!important;}
+    .g-plp{grid-template-columns:1fr!important;}
+    .sx-aside{position:static!important;top:auto!important;}
+    .g-split{grid-template-columns:1fr!important;}
+    .g-pdp{grid-template-columns:1fr!important;}
+    .sx-search{display:none!important;}
+  }
+  @media(max-width:640px){
+    .g-prod{grid-template-columns:repeat(2,1fr)!important;}
+    .g-3col{grid-template-columns:1fr!important;}
+    .g-insta{grid-template-columns:repeat(3,1fr)!important;}
+    .g-foot{grid-template-columns:repeat(2,1fr)!important;}
+    .sx-hero{height:440px!important;}
+    .sx-hero-txt{left:22px!important;right:22px!important;max-width:none!important;}
+    .sx-promo{flex-direction:column!important;align-items:flex-start!important;}
+    .sx-head{gap:12px!important;padding-left:16px!important;padding-right:16px!important;}
+    .sx-nav{order:3;width:100%;flex-wrap:nowrap!important;overflow-x:auto;gap:18px!important;padding-bottom:2px;margin-left:0!important;}
+    h1{font-size:32px!important;}
+    h2{font-size:27px!important;}
+  }
 </style>
 </helmet>
 <div style="--brand-blue:{{ brandBlue }};--brand-purple:{{ brandPurple }};font-family:Manrope,system-ui,sans-serif;color:#17131F;background:#FBFAFF;min-height:100vh;overflow-x:hidden;">
@@ -29,9 +56,9 @@
   <div style="background:linear-gradient(90deg,var(--brand-blue,#2B39E6),var(--brand-purple,#7A3FF2));color:#fff;text-align:center;font-size:13px;font-weight:600;letter-spacing:.02em;padding:9px 16px;">{{ ann }}</div>
 
   <header style="position:sticky;top:0;z-index:50;background:rgba(251,250,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid #ECECF6;">
-    <div style="max-width:1280px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;gap:24px;">
+    <div class="sx-head" style="max-width:1280px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;gap:24px;">
       <div onClick="{{ goHome }}" style="cursor:pointer;font-family:'DM Serif Display',serif;font-size:30px;line-height:1;letter-spacing:-.01em;color:#17131F;">sampaa</div>
-      <nav style="display:flex;gap:22px;margin-left:8px;font-size:14.5px;font-weight:600;">
+      <nav class="sx-nav" style="display:flex;gap:22px;margin-left:8px;font-size:14.5px;font-weight:600;">
         <span onClick="{{ navEthnic }}" style="cursor:pointer;padding:6px 0;" style-hover="color:var(--brand-purple,#7A3FF2)">Ethnic &amp; Festive</span>
         <span onClick="{{ navGirls }}" style="cursor:pointer;padding:6px 0;" style-hover="color:var(--brand-purple,#7A3FF2)">Girls</span>
         <span onClick="{{ navBoys }}" style="cursor:pointer;padding:6px 0;" style-hover="color:var(--brand-purple,#7A3FF2)">Boys</span>
@@ -39,7 +66,7 @@
         <span onClick="{{ navParty }}" style="cursor:pointer;padding:6px 0;" style-hover="color:var(--brand-purple,#7A3FF2)">Party</span>
         <span onClick="{{ navSale }}" style="cursor:pointer;padding:6px 0;color:var(--brand-purple,#7A3FF2);font-weight:800;">Sale</span>
       </nav>
-      <div style="margin-left:auto;display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #E4E4F2;border-radius:999px;padding:9px 15px;width:240px;">
+      <div class="sx-search" style="margin-left:auto;display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #E4E4F2;border-radius:999px;padding:9px 15px;width:240px;">
         <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#9A9AB0" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>
         <input placeholder="Search kurtas, dresses…" style="border:none;outline:none;background:none;font-family:Manrope;font-size:13.5px;width:100%;color:#17131F;"/>
       </div>
@@ -59,12 +86,12 @@
   <main>
     <!-- HERO CAROUSEL -->
     <section style="position:relative;max-width:1280px;margin:22px auto 0;padding:0 24px;">
-      <div style="position:relative;height:520px;border-radius:24px;overflow:hidden;background:#EEF0FF;">
+      <div class="sx-hero" style="position:relative;height:520px;border-radius:24px;overflow:hidden;background:#EEF0FF;">
         <sc-for list="{{ heroR }}" as="s" hint-placeholder-count="1">
           <div style="position:absolute;inset:0;transition:opacity .8s ease;opacity:{{ s.op }};z-index:{{ s.z }};">
             <img src="{{ s.img }}" alt="{{ s.title }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:{{ s.focus }};"/>
             <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(23,19,31,.72) 0%,rgba(23,19,31,.35) 45%,rgba(23,19,31,0) 75%);"></div>
-            <div style="position:absolute;left:56px;top:50%;transform:translateY(-50%);max-width:460px;color:#fff;">
+            <div class="sx-hero-txt" style="position:absolute;left:56px;top:50%;transform:translateY(-50%);max-width:460px;color:#fff;">
               <div style="display:inline-block;background:var(--brand-purple,#7A3FF2);font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:6px 12px;border-radius:999px;margin-bottom:18px;">{{ s.eyebrow }}</div>
               <h1 style="font-family:'DM Serif Display',serif;font-size:52px;line-height:1.05;margin:0 0 14px;font-weight:400;">{{ s.title }}</h1>
               <p style="font-size:17px;line-height:1.5;color:#E7E4F2;margin:0 0 26px;max-width:380px;">{{ s.sub }}</p>
@@ -84,7 +111,7 @@
 
     <!-- TRUST BAR -->
     <section style="max-width:1280px;margin:20px auto 0;padding:0 24px;">
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;">
+      <div class="g-trust" style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;">
         <sc-for list="{{ trust }}" as="t" hint-placeholder-count="4">
           <div style="display:flex;align-items:center;gap:12px;background:#fff;border:1px solid #ECECF6;border-radius:14px;padding:16px 18px;">
             <div style="width:38px;height:38px;border-radius:10px;background:#ECEEFF;display:flex;align-items:center;justify-content:center;color:var(--brand-blue,#2B39E6);flex-shrink:0;">{{ t.icon }}</div>
@@ -103,7 +130,7 @@
         </div>
         <span onClick="{{ goList }}" style="cursor:pointer;font-weight:700;font-size:14.5px;color:var(--brand-blue,#2B39E6);">View all &rarr;</span>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;">
+      <div class="g-cat" style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;">
         <sc-for list="{{ categories }}" as="c" hint-placeholder-count="6">
           <div onClick="{{ goList }}" style="position:relative;height:280px;border-radius:20px;overflow:hidden;cursor:pointer;background:#EEF0FF;">
             <sc-if value="{{ c.img }}"><img src="{{ c.img }}" alt="{{ c.name }}" style="width:100%;height:100%;object-fit:cover;object-position:top center;transition:transform .5s;" style-hover="transform:scale(1.06)"/></sc-if>
@@ -121,7 +148,7 @@
     <!-- SHOP BY AGE -->
     <section style="max-width:1280px;margin:64px auto 0;padding:0 24px;">
       <h2 style="font-family:'DM Serif Display',serif;font-size:38px;margin:0 0 26px;font-weight:400;">Shop by Age</h2>
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:18px;">
+      <div class="g-4" style="display:grid;grid-template-columns:repeat(4,1fr);gap:18px;">
         <sc-for list="{{ ages }}" as="a" hint-placeholder-count="4">
           <div onClick="{{ goList }}" style="cursor:pointer;position:relative;height:160px;border-radius:18px;overflow:hidden;background:{{ a.bg }};display:flex;flex-direction:column;justify-content:center;padding:0 26px;color:#fff;transition:transform .25s;" style-hover="transform:translateY(-4px)">
             <div style="font-family:'DM Serif Display',serif;font-size:34px;line-height:1;">{{ a.label }}</div>
@@ -141,7 +168,7 @@
         </div>
         <span onClick="{{ goList }}" style="cursor:pointer;font-weight:700;font-size:14.5px;color:var(--brand-blue,#2B39E6);">View all &rarr;</span>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;">
+      <div class="g-prod" style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;">
         <sc-for list="{{ newArrivals }}" as="item" hint-placeholder-count="4">
           <div style="position:relative;border-radius:16px;overflow:hidden;background:#fff;border:1px solid #ECECF6;cursor:pointer;transition:transform .25s,box-shadow .25s;" style-hover="transform:translateY(-5px);box-shadow:0 22px 44px -20px rgba(43,57,230,.4)" onClick="{{ item.open }}">
             <div style="position:relative;aspect-ratio:3/4;overflow:hidden;background:#EEF0FF;">
@@ -166,7 +193,7 @@
 
     <!-- PROMO STRIP -->
     <section style="max-width:1280px;margin:64px auto 0;padding:0 24px;">
-      <div style="position:relative;overflow:hidden;border-radius:24px;background:linear-gradient(120deg,var(--brand-blue,#2B39E6),var(--brand-purple,#7A3FF2));color:#fff;padding:44px 52px;display:flex;align-items:center;justify-content:space-between;gap:24px;">
+      <div class="sx-promo" style="position:relative;overflow:hidden;border-radius:24px;background:linear-gradient(120deg,var(--brand-blue,#2B39E6),var(--brand-purple,#7A3FF2));color:#fff;padding:44px 52px;display:flex;align-items:center;justify-content:space-between;gap:24px;">
         <div>
           <div style="font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;opacity:.85;margin-bottom:10px;">First order treat</div>
           <div style="font-family:'DM Serif Display',serif;font-size:40px;line-height:1.05;margin-bottom:8px;">Get 15% off, just for joining</div>
@@ -178,7 +205,7 @@
 
     <!-- FESTIVE EDIT -->
     <section style="max-width:1280px;margin:64px auto 0;padding:0 24px;">
-      <div style="display:grid;grid-template-columns:1.15fr .85fr;gap:0;border-radius:24px;overflow:hidden;background:#F3ECFF;min-height:440px;">
+      <div class="g-split" style="display:grid;grid-template-columns:1.15fr .85fr;gap:0;border-radius:24px;overflow:hidden;background:#F3ECFF;min-height:440px;">
         <div style="position:relative;">
           <img src="{{ img.ethnic }}" alt="Festive edit" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;"/>
         </div>
@@ -200,7 +227,7 @@
         </div>
         <span onClick="{{ goList }}" style="cursor:pointer;font-weight:700;font-size:14.5px;color:var(--brand-blue,#2B39E6);">View all &rarr;</span>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;">
+      <div class="g-prod" style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;">
         <sc-for list="{{ bestSellers }}" as="item" hint-placeholder-count="4">
           <div style="position:relative;border-radius:16px;overflow:hidden;background:#fff;border:1px solid #ECECF6;cursor:pointer;transition:transform .25s,box-shadow .25s;" style-hover="transform:translateY(-5px);box-shadow:0 22px 44px -20px rgba(122,63,242,.4)" onClick="{{ item.open }}">
             <div style="position:relative;aspect-ratio:3/4;overflow:hidden;background:#EEF0FF;">
@@ -225,7 +252,7 @@
 
     <!-- BRAND STORY -->
     <section style="max-width:1280px;margin:64px auto 0;padding:0 24px;">
-      <div style="display:grid;grid-template-columns:.85fr 1.15fr;gap:0;border-radius:24px;overflow:hidden;background:#17131F;color:#fff;min-height:420px;">
+      <div class="g-split" style="display:grid;grid-template-columns:.85fr 1.15fr;gap:0;border-radius:24px;overflow:hidden;background:#17131F;color:#fff;min-height:420px;">
         <div style="padding:56px 48px;display:flex;flex-direction:column;justify-content:center;">
           <div style="font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#9DB2FF;margin-bottom:14px;">Our story</div>
           <h2 style="font-family:'DM Serif Display',serif;font-size:40px;line-height:1.08;margin:0 0 18px;font-weight:400;">Clothes that keep up with childhood</h2>
@@ -240,7 +267,7 @@
     <!-- TESTIMONIALS -->
     <section style="max-width:1280px;margin:64px auto 0;padding:0 24px;">
       <h2 style="font-family:'DM Serif Display',serif;font-size:38px;margin:0 0 26px;text-align:center;font-weight:400;">Happy parents, happier kids</h2>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
+      <div class="g-3col" style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
         <sc-for list="{{ testimonials }}" as="t" hint-placeholder-count="3">
           <div style="background:#fff;border:1px solid #ECECF6;border-radius:18px;padding:28px;">
             <div style="color:var(--brand-purple,#7A3FF2);font-size:18px;letter-spacing:2px;margin-bottom:12px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
@@ -260,7 +287,7 @@
         <div style="font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--brand-blue,#2B39E6);margin-bottom:8px;">@sampaa.kids</div>
         <h2 style="font-family:'DM Serif Display',serif;font-size:38px;margin:0;font-weight:400;">Tag us to be featured</h2>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:12px;">
+      <div class="g-insta" style="display:grid;grid-template-columns:repeat(6,1fr);gap:12px;">
         <sc-for list="{{ instas }}" as="g" hint-placeholder-count="6">
           <div style="position:relative;aspect-ratio:1/1;border-radius:14px;overflow:hidden;cursor:pointer;background:#EEF0FF;">
             <sc-if value="{{ g.img }}"><img src="{{ g.img }}" alt="Instagram" style="width:100%;height:100%;object-fit:cover;transition:transform .4s;" style-hover="transform:scale(1.08)"/></sc-if>
@@ -292,8 +319,8 @@
       <h1 style="font-family:'DM Serif Display',serif;font-size:36px;margin:0 0 6px;font-weight:400;">{{ plpTitle }}</h1>
       <p style="margin:0;font-size:15px;opacity:.9;">{{ plpCount }} styles — kurtas, sherwanis, party dresses &amp; more</p>
     </div>
-    <div style="display:grid;grid-template-columns:250px 1fr;gap:32px;align-items:start;">
-      <aside style="position:sticky;top:88px;background:#fff;border:1px solid #ECECF6;border-radius:18px;padding:22px;">
+    <div class="g-plp" style="display:grid;grid-template-columns:250px 1fr;gap:32px;align-items:start;">
+      <aside class="sx-aside" style="position:sticky;top:88px;background:#fff;border:1px solid #ECECF6;border-radius:18px;padding:22px;">
         <div style="font-family:'DM Serif Display',serif;font-size:20px;margin-bottom:16px;">Filters</div>
         <sc-for list="{{ filters }}" as="f" hint-placeholder-count="3">
           <div style="border-top:1px solid #F0F0F7;padding:16px 0;">
@@ -323,7 +350,7 @@
         </div>
         <sc-if value="{{ showGirls }}" hint-placeholder-val="{{ true }}">
         <div style="display:flex;align-items:center;gap:14px;margin:4px 0 18px;"><div style="width:6px;height:26px;border-radius:99px;background:var(--brand-blue,#2B39E6);"></div><h2 style="font-family:'DM Serif Display',serif;font-size:26px;margin:0;font-weight:400;">Girls</h2><span style="font-size:13px;color:#9A9AB0;">Kurtas, party dresses &amp; co-ords</span></div>
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
+        <div class="g-3col" style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
           <sc-for list="{{ girlsProducts }}" as="item" hint-placeholder-count="9">
             <div style="position:relative;border-radius:16px;overflow:hidden;background:#fff;border:1px solid #ECECF6;cursor:pointer;transition:transform .25s,box-shadow .25s;" style-hover="transform:translateY(-5px);box-shadow:0 22px 44px -20px rgba(43,57,230,.4)" onClick="{{ item.open }}">
               <div style="position:relative;aspect-ratio:3/4;overflow:hidden;background:#EEF0FF;">
@@ -347,7 +374,7 @@
         </sc-if>
         <sc-if value="{{ showBoys }}" hint-placeholder-val="{{ true }}">
         <div style="display:flex;align-items:center;gap:14px;margin:46px 0 18px;"><div style="width:6px;height:26px;border-radius:99px;background:var(--brand-purple,#7A3FF2);"></div><h2 style="font-family:'DM Serif Display',serif;font-size:26px;margin:0;font-weight:400;">Boys</h2><span style="font-size:13px;color:#9A9AB0;">Kurta sets, shirts &amp; everyday</span></div>
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
+        <div class="g-3col" style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
           <sc-for list="{{ boysProducts }}" as="item" hint-placeholder-count="6">
             <div style="position:relative;border-radius:16px;overflow:hidden;background:#fff;border:1px solid #ECECF6;cursor:pointer;transition:transform .25s,box-shadow .25s;" style-hover="transform:translateY(-5px);box-shadow:0 22px 44px -20px rgba(122,63,242,.4)" onClick="{{ item.open }}">
               <div style="position:relative;aspect-ratio:3/4;overflow:hidden;background:#EEF0FF;">
@@ -383,7 +410,7 @@
   <sc-if value="{{ isDetail }}" hint-placeholder-val="{{ true }}">
   <main style="max-width:1280px;margin:0 auto;padding:26px 24px 0;">
     <div style="font-size:13px;color:#9A9AB0;margin-bottom:20px;"><span onClick="{{ goHome }}" style="cursor:pointer;">Home</span> / <span onClick="{{ goList }}" style="cursor:pointer;">Girls</span> / <span style="color:#17131F;font-weight:700;">{{ product.name }}</span></div>
-    <div style="display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:start;">
+    <div class="g-pdp" style="display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:start;">
       <div style="display:grid;grid-template-columns:76px 1fr;gap:14px;position:sticky;top:88px;">
         <div style="display:flex;flex-direction:column;gap:12px;">
           <sc-for list="{{ galleryThumbs }}" as="t" hint-placeholder-count="4">
@@ -445,7 +472,7 @@
 
     <section style="margin:64px 0 0;">
       <h2 style="font-family:'DM Serif Display',serif;font-size:32px;margin:0 0 24px;font-weight:400;">You may also like</h2>
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;">
+      <div class="g-prod" style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;">
         <sc-for list="{{ related }}" as="item" hint-placeholder-count="4">
           <div style="position:relative;border-radius:16px;overflow:hidden;background:#fff;border:1px solid #ECECF6;cursor:pointer;transition:transform .25s,box-shadow .25s;" style-hover="transform:translateY(-5px);box-shadow:0 22px 44px -20px rgba(43,57,230,.4)" onClick="{{ item.open }}">
             <div style="position:relative;aspect-ratio:3/4;overflow:hidden;background:#EEF0FF;">
@@ -465,7 +492,7 @@
 
   <!-- ================= FOOTER ================= -->
   <footer style="margin-top:72px;background:#17131F;color:#C9C6D6;">
-    <div style="max-width:1280px;margin:0 auto;padding:52px 24px 28px;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px;">
+    <div class="g-foot" style="max-width:1280px;margin:0 auto;padding:52px 24px 28px;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px;">
       <div>
         <div style="font-family:'DM Serif Display',serif;font-size:28px;color:#fff;margin-bottom:12px;">sampaa<span style="color:var(--brand-purple,#7A3FF2);">.</span></div>
         <p style="font-size:14px;line-height:1.6;max-width:260px;margin:0 0 16px;">Thoughtfully made kidswear — designed in India, built for play, made to be handed down.</p>
